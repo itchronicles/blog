@@ -46,6 +46,7 @@ a {
   position: sticky;
   top: 0;
   background-color: var(--bg);
+  z-index: 100;
 }
 
 .logo {
@@ -662,12 +663,10 @@ code {
 }
 
 @media (max-width: 768px) {
-  /* Hide desktop menu */
   .desktop-menu {
     display: none;
   }
   
-  /* Show burger menu */
   .burger-menu {
     display: flex;
     flex-direction: column;
@@ -689,7 +688,6 @@ code {
     transition: all 0.3s linear;
   }
 
-  /* Mobile menu styling */
   .mobile-menu {
     position: fixed;
     top: 0;
@@ -706,18 +704,6 @@ code {
 
   .mobile-menu.active {
     right: 0;
-  }
-
-  /* Remove any previous mobile menu styles that might be causing conflicts */
-  .links {
-    width: auto;
-    margin-top: 0;
-  }
-
-  .navbar {
-    height: 100px;
-    padding: 0;
-    flex-wrap: nowrap;
   }
 }
 
