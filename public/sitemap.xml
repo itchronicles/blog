@@ -2,61 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://itchronicless.org/authors/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
+    <loc>http://localhost:1313/authors/</loc>
+    <lastmod>2024-12-26T17:58:53+01:00</lastmod>
   </url><url>
-    <loc>https://itchronicless.org/categories/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
+    <loc>http://localhost:1313/automating-disk-resizing/</loc>
+    <lastmod>2024-12-26T17:58:53+01:00</lastmod>
   </url><url>
-    <loc>https://itchronicless.org/categories/coding/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-12-26T17:58:53+01:00</lastmod>
   </url><url>
-    <loc>https://itchronicless.org/categories/css/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
+    <loc>http://localhost:1313/categories/general/</loc>
+    <lastmod>2024-12-26T17:58:53+01:00</lastmod>
   </url><url>
-    <loc>https://itchronicless.org/categories/culture/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-12-26T17:58:53+01:00</lastmod>
   </url><url>
-    <loc>https://itchronicless.org/categories/general/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/categories/html/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/authors/jane-doe/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/authors/john-doe/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/categories/js/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/authors/lama-dev/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/categories/life/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/my-fifth-post/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/my-first-post/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/my-fourth-post/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/my-second-post/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/my-third-post/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
-  </url><url>
-    <loc>https://itchronicless.org/categories/travel/</loc>
-    <lastmod>2023-11-22T16:55:24+01:00</lastmod>
+    <loc>http://localhost:1313/authors/lennart-pieperjohanns/</loc>
+    <lastmod>2024-12-26T17:58:53+01:00</lastmod>
   </url>
 </urlset>

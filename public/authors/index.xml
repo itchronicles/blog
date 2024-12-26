@@ -2,31 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on itchronicles</title>
-    <link>https://itchronicless.org/authors/</link>
+    <link>http://localhost:1313/authors/</link>
     <description>Recent content in Authors on itchronicles</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Nov 2023 16:55:24 +0100</lastBuildDate>
-    <atom:link href="https://itchronicless.org/authors/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Dec 2024 17:58:53 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/authors/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Jane Doe</title>
-      <link>https://itchronicless.org/authors/jane-doe/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/authors/jane-doe/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>John Doe</title>
-      <link>https://itchronicless.org/authors/john-doe/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/authors/john-doe/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Lama Dev</title>
-      <link>https://itchronicless.org/authors/lama-dev/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/authors/lama-dev/</guid>
+      <title>Lennart Pieperjohanns</title>
+      <link>http://localhost:1313/authors/lennart-pieperjohanns/</link>
+      <pubDate>Thu, 26 Dec 2024 17:58:53 +0100</pubDate>
+      <guid>http://localhost:1313/authors/lennart-pieperjohanns/</guid>
       <description></description>
     </item>
   </channel>

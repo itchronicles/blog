@@ -285,6 +285,16 @@ a {
   flex: 1;
 }
 
+code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--bgSoft);
+  color: var(--textSoft);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 90%;
+}
+
+
 /* SINGLE END */
 
 /* RIGHTBAR START */

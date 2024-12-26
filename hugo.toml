@@ -7,7 +7,7 @@ pagerSize = "4"
 
 [params]
   description = "IT blog and knowledge base"
-  dateFormat = "21 Jan , 2005"
+  dateFormat = "2.Jan.2006"
 
 [taxonomies]
   category = "categories"

@@ -7,7 +7,7 @@
   <meta name="description" content=IT&#32;blog&#32;and&#32;knowledge&#32;base>
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="icon" href="/images/favicon.png" />
-  <title>General</title>
+  <title>Automating Disk Resizing with Ansible on RHEL Server</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6959652946245037"
      crossorigin="anonymous"></script>
 </head>
@@ -79,12 +79,95 @@
     </div>
   </div>
 </nav>
-     
-
-<div class="list">
-   
+    
+<div class="single">
+  <div class="singleHead">
+    <div class="singleHeadTexts">
+      <h1 class="singleHeadTitle">Automating Disk Resizing with Ansible on RHEL Server</h1>
+      <p class="singleHeadDesc"></p>
+      <div class="singleHeadDetail">
+        <img src=/images/avatar.webp loading="lazy" alt="" class="singleAvatar">
+        <span>
+          <a href=http://localhost:1313/authors/lennart-pieperjohanns/>lennart pieperjohanns</a>
+          
+        </span>
+        
+        <a href=http://localhost:1313/categories/ansible/ class="singleCategory">Ansible</a>
+        
+        <a href=http://localhost:1313/categories/rhel/ class="singleCategory">RHEL</a>
+        
+      </div>
+      <time>26.Dec.2024</time>
+    </div>
+    <img src=/images/automating-disk-resizing/automating-disk-resizing-first.png alt=Automating&#32;Disk&#32;Resizing&#32;with&#32;Ansible&#32;on&#32;RHEL&#32;Server class="singleHeadImg">
+  </div>
+  <div class="singleBottom">
+    <div class="singleContent"><p>As server admins, resizing disks of virtual machines is a task that routinely happens. It often involves several manual steps, from rescanning the SCSI bus to resizing physical and logical volumes. However, these steps can be automated using Ansible, making the process more efficient and less error-prone.</p>
+<p>This playbook assumes that the physical root disk has been resized for more storage and provides a solution using Ansible.</p>
+<h2 id="ansible-playbook-for-disk-resizing">Ansible Playbook for Disk Resizing:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Automate Disk Resizing on RHEL</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: <span style="color:#ae81ff">all</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">become</span>: <span style="color:#66d9ef">yes</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tasks</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Rescan SCSI bus</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.shell</span>: <span style="color:#ae81ff">rescan-scsi-bus.sh -u</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Resize partition 2 on /dev/sda</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.expect</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">command</span>: <span style="color:#ae81ff">parted ---pretend-input-tty /dev/sda resizepart</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">responses</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;Fix/Ignore?&#34;: </span><span style="color:#e6db74">&#34;Fix&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;Partition number?&#34;: </span><span style="color:#e6db74">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;End?&#34;: </span><span style="color:#e6db74">&#34;100%&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Inform the OS of partition table changes</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.shell</span>: <span style="color:#ae81ff">partprobe /dev/sda</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Resize physical volume /dev/sda2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.shell</span>: <span style="color:#ae81ff">pvresize /dev/sda2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Extend logical volume /dev/mapper/rhel-root</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.shell</span>: <span style="color:#ae81ff">lvextend -r -l +100%FREE /dev/mapper/rhel-root</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Rescan SCSI bus</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.shell</span>: <span style="color:#ae81ff">rescan-scsi-bus.sh -u</span>
+</span></span></code></pre></div><h2 id="this-playbook-performs-the-following-tasks">This playbook performs the following tasks:</h2>
+<ol>
+<li>Rescans the SCSI bus to detect the new disk size.</li>
+<li>Uses <code>parted</code> to resize the partition. The <code>expect</code> module helps handle interactive prompts by providing the necessary responses.</li>
+<li>Runs <code>partprobe</code> to inform the operating system of partition table changes.</li>
+<li>Resizes the physical volume using <code>pvresize</code>.</li>
+<li>Extends the logical volume using <code>lvextend</code> to utilize the newly available space.</li>
+<li>Rescans the SCSI bus again as a final step.</li>
+</ol>
+<p>This playbook is designed for a RHEL server in a home lab environment, where automatic provisioning was used. However, in a production setting, it is more common to manually size the partitions in a template, which makes it possible to use the playbook for different hosts. If the volume is under another number or the logical volume has another name, the script needs to be edited accordingly.</p>
+<h2 id="to-identify-the-current-volume-and-logical-volume-names-you-can-use-the-following-command">To identify the current volume and logical volume names, you can use the following command:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@rhel ~<span style="color:#f92672">]</span><span style="color:#75715e"># lsblk</span>
+</span></span><span style="display:flex;"><span>NAME                        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+</span></span><span style="display:flex;"><span>sda                           8:0    <span style="color:#ae81ff">0</span>   25G  <span style="color:#ae81ff">0</span> disk
+</span></span><span style="display:flex;"><span>├─sda1                        8:1    <span style="color:#ae81ff">0</span>    1G  <span style="color:#ae81ff">0</span> part /boot
+</span></span><span style="display:flex;"><span>└─sda2                        8:2    <span style="color:#ae81ff">0</span>   14G  <span style="color:#ae81ff">0</span> part
+</span></span><span style="display:flex;"><span>  ├─rhel-root               253:0    <span style="color:#ae81ff">0</span> 12.5G  <span style="color:#ae81ff">0</span> lvm  /
+</span></span><span style="display:flex;"><span>  └─rhel-swap               253:1    <span style="color:#ae81ff">0</span>  1.5G  <span style="color:#ae81ff">0</span> lvm  <span style="color:#f92672">[</span>SWAP<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>sr0                          11:0    <span style="color:#ae81ff">1</span>  991M  <span style="color:#ae81ff">0</span> rom
+</span></span></code></pre></div><p>After the playbook was executed the root logical volume (rhel-root) has been extended to utilize the additional space, growing from 12.5G to 22.5G.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@rhel ~<span style="color:#f92672">]</span><span style="color:#75715e"># lsblk</span>
+</span></span><span style="display:flex;"><span>NAME                        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+</span></span><span style="display:flex;"><span>sda                           8:0    <span style="color:#ae81ff">0</span>   25G  <span style="color:#ae81ff">0</span> disk
+</span></span><span style="display:flex;"><span>├─sda1                        8:1    <span style="color:#ae81ff">0</span>    1G  <span style="color:#ae81ff">0</span> part /boot
+</span></span><span style="display:flex;"><span>└─sda2                        8:2    <span style="color:#ae81ff">0</span>   24G  <span style="color:#ae81ff">0</span> part
+</span></span><span style="display:flex;"><span>  ├─rhel-root               253:0    <span style="color:#ae81ff">0</span> 22.5G  <span style="color:#ae81ff">0</span> lvm  /
+</span></span><span style="display:flex;"><span>  └─rhel-swap               253:1    <span style="color:#ae81ff">0</span>  1.5G  <span style="color:#ae81ff">0</span> lvm  <span style="color:#f92672">[</span>SWAP<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>sr0                          11:0    <span style="color:#ae81ff">1</span>  991M  <span style="color:#ae81ff">0</span> rom
+</span></span></code></pre></div><p>By following this playbook, you can automate the disk resizing process on your RHEL servers, saving time and reducing the potential for human error. This approach can be tailored to fit different environments and configurations, making it a versatile solution for managing disk space on virtual machines.</p>
 </div>
- 
+    <div class="singleRightBar">
+  
+    </div>
+  </div>
+</div>
+
     <div class="footer">
   <div class="footerLinks">
     <a href="/">lama dev</a> |

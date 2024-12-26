@@ -2,66 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on itchronicles</title>
-    <link>https://itchronicless.org/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on itchronicles</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Nov 2023 16:55:24 +0100</lastBuildDate>
-    <atom:link href="https://itchronicless.org/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Coding</title>
-      <link>https://itchronicless.org/categories/coding/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/categories/coding/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Css</title>
-      <link>https://itchronicless.org/categories/css/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/categories/css/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Culture</title>
-      <link>https://itchronicless.org/categories/culture/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/categories/culture/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Thu, 26 Dec 2024 17:58:53 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>General</title>
-      <link>https://itchronicless.org/categories/general/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/categories/general/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Html</title>
-      <link>https://itchronicless.org/categories/html/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/categories/html/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Js</title>
-      <link>https://itchronicless.org/categories/js/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/categories/js/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Life</title>
-      <link>https://itchronicless.org/categories/life/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/categories/life/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Travel</title>
-      <link>https://itchronicless.org/categories/travel/</link>
-      <pubDate>Wed, 22 Nov 2023 16:55:24 +0100</pubDate>
-      <guid>https://itchronicless.org/categories/travel/</guid>
+      <link>http://localhost:1313/categories/general/</link>
+      <pubDate>Thu, 26 Dec 2024 17:58:53 +0100</pubDate>
+      <guid>http://localhost:1313/categories/general/</guid>
       <description></description>
     </item>
   </channel>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lennart Pieperjohanns on itchronicles</title>
+    <link>http://localhost:1313/authors/lennart-pieperjohanns/</link>
+    <description>Recent content in Lennart Pieperjohanns on itchronicles</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Dec 2024 17:58:53 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/authors/lennart-pieperjohanns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automating Disk Resizing</title>
+      <link>http://localhost:1313/automating-disk-resizing/</link>
+      <pubDate>Thu, 26 Dec 2024 17:58:53 +0100</pubDate>
+      <guid>http://localhost:1313/automating-disk-resizing/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
