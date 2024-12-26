@@ -505,8 +505,17 @@ code {
 
   /* Enhance burger menu animation */
   .burger-menu {
-    padding: 15px;
-    margin: -15px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    margin-right: 5px;
   }
 
   .burger-menu span {
@@ -686,6 +695,7 @@ code {
     cursor: pointer;
     padding: 0;
     z-index: 1001;
+    margin-right: 5px;
   }
 
   .burger-menu span {
