@@ -1,0 +1,14 @@
+baseURL = 'https://itchronicless.org/'
+languageCode = 'en-us'
+title = 'itchronicles'
+
+[pagination]
+pagerSize = "4"
+
+[params]
+  description = "IT blog and knowledge base"
+  dateFormat = "21 Jan , 2005"
+
+[taxonomies]
+  category = "categories"
+  author = "authors"
