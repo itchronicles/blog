@@ -27,8 +27,8 @@ a {
 
 .container {
   max-width: 1366px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: auto;
   min-height: 100vh;
   display: flex;
@@ -409,6 +409,116 @@ code {
   .searchButton span{
     display: none;
   }
+
+  .navbar {
+    height: auto;
+    padding: 15px 0;
+    flex-wrap: wrap;
+  }
+
+  .links {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+
+  .searchInput {
+    width: 150px;
+  }
+
+  .searchInput:focus {
+    width: 200px;
+  }
+
+  .singleHeadTitle {
+    font-size: 32px;
+  }
+
+  .singleHeadDesc {
+    font-size: 18px;
+  }
+
+  .singleContent {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  /* Update mobile menu styling */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 100px 30px;
+    transition: all 0.3s ease-in-out;
+    z-index: 5;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-menu a {
+    font-size: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--bgSoft);
+    transition: color 0.2s ease;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--textSoft);
+  }
+
+  .mobile-menu .toggle {
+    margin: 20px 0;
+    align-self: flex-start;
+  }
+
+  .mobile-menu .searchButton {
+    width: 100%;
+  }
+
+  .mobile-menu .searchInput {
+    width: 100%;
+  }
+
+  .mobile-menu .searchInput:focus {
+    width: 100%;
+  }
+
+  /* Improve overlay */
+  .menu-overlay.active {
+    backdrop-filter: blur(2px);
+  }
+
+  /* Enhance burger menu animation */
+  .burger-menu {
+    padding: 15px;
+    margin: -15px;
+  }
+
+  .burger-menu span {
+    width: 25px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .burger-menu.active span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .burger-menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .burger-menu.active span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
 }
 @media (max-width: 640px) {
   .container {
@@ -542,3 +652,178 @@ code {
   }
 }
 /* CATEGORIES PAGE END */
+/* BURGER MENU START */
+.burger-menu {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+  }
+
+  .burger-menu span {
+    width: 30px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    background: var(--bg);
+    flex-direction: column;
+    padding: 80px 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .mobile-menu.active {
+    right: 0;
+    display: flex;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    font-size: 18px;
+    border-bottom: 1px solid var(--bgSoft);
+    width: 100%;
+    text-align: left;
+  }
+
+  .mobile-menu .searchButton {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .mobile-menu .searchInput {
+    width: 100%;
+  }
+
+  .mobile-menu .toggle {
+    margin: 20px 0;
+  }
+
+  .burger-menu {
+    z-index: 1001;
+  }
+
+  .menu-overlay {
+    z-index: 999;
+  }
+
+  /* Burger menu animation classes */
+  .burger-menu.active span:first-child {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .burger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active span:last-child {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 4;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* Update the burger-menu styles */
+.burger-menu {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    position: relative;
+  }
+
+  .burger-menu span {
+    width: 30px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+  }
+
+  /* Improve the burger menu animation */
+  .burger-menu.active span:first-child {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .burger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active span:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Ensure mobile menu is properly positioned */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    padding: 80px 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 5;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-menu.active {
+    right: 0;
+  }
+}
+
+/* BURGER MENU END */
