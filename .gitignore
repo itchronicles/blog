@@ -1,0 +1,8 @@
+# Exclude public directory
+public/
+
+# Common additional excludes for web projects
+node_modules/
+.env
+.env.local
+.DS_Store 
