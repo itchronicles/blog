@@ -147,14 +147,9 @@ a {
 .footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 100px;
   font-size: 14px;
-}
-
-.social {
-  display: flex;
-  gap: 10px;
 }
 
 /* FOOTER END */
