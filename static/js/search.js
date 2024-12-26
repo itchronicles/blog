@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     let searchIndex = null;
-    const searchInput = document.getElementById('search-input');
-    const resultsContainer = document.getElementById('search-results');
+    const searchInputs = {
+        nav: document.getElementById('search-input'),
+        main: document.getElementById('main-search-input')
+    };
+    const resultsContainers = {
+        nav: document.getElementById('search-results'),
+        main: document.getElementById('main-search-results')
+    };
 
     // Fetch the search index
     fetch('/index.json')
@@ -19,30 +25,36 @@ document.addEventListener('DOMContentLoaded', function() {
             searchIndex = new Fuse(data.posts, options);
         });
 
-    // Handle search input
-    searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value;
-        if (searchTerm.length < 2) {
-            resultsContainer.classList.remove('active');
-            return;
-        }
+    // Handle search input for both search bars
+    Object.entries(searchInputs).forEach(([key, input]) => {
+        if (!input) return; // Skip if element doesn't exist
 
-        const results = searchIndex.search(searchTerm);
-        displayResults(results);
+        input.addEventListener('input', function(e) {
+            const searchTerm = e.target.value;
+            if (searchTerm.length < 2) {
+                resultsContainers[key].classList.remove('active');
+                return;
+            }
+
+            const results = searchIndex.search(searchTerm);
+            displayResults(results, resultsContainers[key]);
+        });
     });
 
     // Handle clicking outside of search
     document.addEventListener('click', function(e) {
-        if (!e.target.closest('.searchButton')) {
-            resultsContainer.classList.remove('active');
+        if (!e.target.closest('.searchButton') && !e.target.closest('.main-search-wrapper')) {
+            Object.values(resultsContainers).forEach(container => {
+                if (container) container.classList.remove('active');
+            });
         }
     });
 
-    function displayResults(results) {
+    function displayResults(results, container) {
         if (!results.length) {
-            resultsContainer.innerHTML = '<div class="search-result-item"><p>No results found</p></div>';
+            container.innerHTML = '<div class="search-result-item"><p>No results found</p></div>';
         } else {
-            resultsContainer.innerHTML = results
+            container.innerHTML = results
                 .slice(0, 5)
                 .map(result => `
                     <div class="search-result-item" onclick="window.location.href='${result.item.permalink}'">
@@ -51,6 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `).join('');
         }
-        resultsContainer.classList.add('active');
+        container.classList.add('active');
     }
 }); 

@@ -60,16 +60,6 @@ a {
   font-size: 20px;
 }
 
-.searchButton {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: var(--bgSoft);
-  color: var(--textSoft);
-  padding: 5px;
-  border-radius: 10px;
-}
-
 .toggle {
   width: 40px;
   height: 20px;
@@ -376,3 +366,138 @@ code {
     max-width: 475px;
   }
 }
+
+/* SEARCHBAR START */
+
+.main-search-container {
+  text-align: center;
+  padding: 40px 0;
+  margin-bottom: 40px;
+}
+
+.main-search-container h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.main-search-wrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.main-search-input {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  background: var(--bgSoft);
+  border: 2px solid var(--textSoft);
+  border-radius: 30px;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.main-search-input:focus {
+  outline: none;
+  border-color: var(--text);
+  box-shadow: 0 0 10px rgba(222, 228, 235, 0.1);
+}
+
+.main-search-input::placeholder {
+  color: var(--textSoft);
+}
+
+.main-search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border: 1px solid var(--bgSoft);
+  border-radius: 10px;
+  margin-top: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  text-align: left;
+}
+
+.main-search-results.active {
+  display: block;
+}
+
+.search-result-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--bgSoft);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: var(--bgSoft);
+}
+
+.search-result-item h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.search-result-item p {
+  font-size: 14px;
+  color: var(--textSoft);
+  margin: 0;
+}
+
+/* SEARCHBAR END */
+
+/* NAVBAR SEARCHBAR START */
+
+.searchButton {
+  position: relative;
+}
+
+.searchInput {
+  background: var(--bgSoft);
+  border: 1px solid var(--textSoft);
+  padding: 8px 12px;
+  color: var(--text);
+  border-radius: 20px;
+  font-size: 14px;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--text);
+  width: 250px;
+}
+
+.searchInput::placeholder {
+  color: var(--textSoft);
+}
+
+.search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 300px;
+  background: var(--bg);
+  border: 1px solid var(--bgSoft);
+  border-radius: 10px;
+  margin-top: 5px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.search-results.active {
+  display: block;
+}
+
+/* NAVBAR SEARCHBAR END */

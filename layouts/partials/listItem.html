@@ -1,0 +1,27 @@
+<div class="listItem">
+  {{ if .Params.image }}
+  <img src={{ .Params.image }} alt="" class="listItemImage">
+  {{ end }}
+  <div class="listItemTexts">
+    <h2>
+      <a href={{ .Permalink }}>{{ .Title }}</a>
+    </h2>
+    <p>{{ .Params.description }}</p>
+    <div class="listItemDetail">
+      {{ if .Params.avatar }}
+      <img src={{ .Params.avatar }} alt="" class="listItemAvatar">
+      {{ end }}
+      <span>
+        {{ range (.GetTerms "authors") }}
+        <a href={{ .Permalink }}>{{ .Name }}</a>
+        {{ end }}
+      </span>
+      <div class="listItemCategories">
+        {{ range (.GetTerms "categories") }}
+        <a href={{ .Permalink }} class="listItemCategory">{{ .Name }}</a>
+        {{ end }}
+      </div>
+      <time>{{ dateFormat .Site.Params.dateFormat .Date }}</time>
+    </div>
+  </div>
+</div> 
