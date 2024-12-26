@@ -315,6 +315,14 @@ a {
   width: 100%;
   overflow-x: scroll;
   padding: 20px;
+  margin: 0;
+  display: block;
+  position: relative;
+}
+
+.singleContent pre code {
+  padding: 0;
+  margin: 0;
 }
 
 .singleRightBar {
@@ -788,3 +796,29 @@ code {
   display: block;
 }
 /* MOBILE MENU END */
+
+/* COPY BUTTON START */
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background: var(--bgSoft);
+  border: 1px solid var(--textSoft);
+  border-radius: 4px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: var(--textSoft);
+  color: var(--bg);
+}
+
+.copy-button.copied {
+  background: #2ecc71;
+  border-color: #27ae60;
+}
+/* COPY BUTTON END */

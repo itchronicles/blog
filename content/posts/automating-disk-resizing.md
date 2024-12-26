@@ -5,7 +5,7 @@ draft = false
 description = ""
 image = "/images/automating-disk-resizing/automating-disk-resizing-first.png"
 imageBig = "/images/automating-disk-resizing/automating-disk-resizing-first.png"
-categories = ["Ansible", "RHEL"]
+categories = ["Ansible", "RHEL", "Linux", "Virtualization", "Home Lab", "Automation", "resize", "lvm"]
 authors = ["lennart pieperjohanns"]
 avatar = "/images/avatar.webp"
 +++
@@ -15,7 +15,7 @@ As server admins, resizing disks of virtual machines is a task that routinely ha
 This playbook assumes that the physical root disk has been resized for more storage and provides a solution using Ansible.
 
 ## Ansible Playbook for Disk Resizing:
-```YAML
+```yaml
 ---
 - name: Automate Disk Resizing on RHEL
   hosts: all
