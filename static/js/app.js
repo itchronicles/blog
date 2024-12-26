@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const burgerMenu = document.querySelector('.burger-menu');
   const mobileMenu = document.querySelector('.mobile-menu');
   const body = document.body;
+  const mobileToggle = mobileMenu.querySelector('.toggle');
 
   const overlay = document.createElement('div');
   overlay.className = 'menu-overlay';
@@ -27,6 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   burgerMenu.addEventListener('click', toggleMenu);
   overlay.addEventListener('click', toggleMenu);
+
+  // Handle mobile dark/light toggle
+  mobileToggle.addEventListener("click", () => {
+    const mode = localStorage.getItem("mode") === "light" ? "" : "light";
+    localStorage.setItem("mode", mode);
+    body.className = mode;
+  });
 
   // Close menu when clicking a link
   mobileMenu.querySelectorAll('a').forEach(link => {
