@@ -370,8 +370,8 @@ code {
 }
 
 .toc nav#TableOfContents ul {
-  list-style: none;
-  padding-left: 0;
+  list-style: disc;
+  padding-left: 20px;
 }
 
 .toc nav#TableOfContents > ul > li {
@@ -379,7 +379,8 @@ code {
 }
 
 .toc nav#TableOfContents > ul ul {
-  padding-left: 15px;
+  list-style: circle;
+  padding-left: 20px;
   margin-top: 5px;
 }
 
