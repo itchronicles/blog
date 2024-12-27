@@ -3,9 +3,9 @@ title = 'Creating a Cloudflare SSL Certificate using certbot'
 date = 2024-12-27T17:48:13+01:00
 draft = false
 description = "Learn how to create a SSL certificate using certbot and Cloudflare on a Debian 12 container."
-image = ""
-imageBig = ""
-categories = ["general"]
+image = "/images/creating-cloudflare-certificate/cert-mini.webp"
+imageBig = "/images/creating-cloudflare-certificate/cert-big.webp"
+categories = ["Debian", "Certbot", "Cloudflare", "Linux", "home lab", "ssl", "certificate"]
 authors = ["lennart pieperjohanns"]
 avatar = "/images/avatar.webp"
 +++
