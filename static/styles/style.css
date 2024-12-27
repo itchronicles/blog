@@ -846,6 +846,13 @@ code {
   cursor: pointer;
   font-size: 12px;
   transition: all 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.singleContent pre:hover .copy-button {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .copy-button:hover {
@@ -854,6 +861,7 @@ code {
 }
 
 .copy-button.copied {
+  opacity: 1;
   background: #2ecc71;
   border-color: #27ae60;
 }
