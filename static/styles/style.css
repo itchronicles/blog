@@ -542,7 +542,7 @@ code {
   }
 
   .mobile-menu .toggle {
-    margin: 0 0 20px 0;
+    margin: 32px 0;
     align-self: flex-start;
   }
 
@@ -820,7 +820,7 @@ code {
   }
 
   .mobile-menu .toggle {
-    margin: 0 0 20px 0;
+    margin: 32px 0;
     align-self: flex-start;
   }
 
