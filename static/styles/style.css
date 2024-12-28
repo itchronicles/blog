@@ -304,8 +304,8 @@ a {
 
 .singleBottom {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 250px;
-  gap: 50px;
+  grid-template-columns: 1fr 250px;
+  gap: 40px;
   margin-top: 50px;
 }
 
@@ -445,7 +445,20 @@ code {
   }
 
   .singleBottom {
-    flex-direction: column-reverse;
+    display: block;
+  }
+
+  .singleContent {
+    width: 100%;
+    max-width: none;
+  }
+
+  .singleRightBar {
+    display: none;
+  }
+
+  .rightBar {
+    display: none;
   }
 
   .rightBarImg {
