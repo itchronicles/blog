@@ -909,7 +909,7 @@ code {
   color: #856404;
   padding: 0.5rem;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1.0rem;
   line-height: 1.2;
   margin: 0;
   position: absolute;
@@ -933,7 +933,7 @@ code {
   }
   
   .dev-banner p {
-    animation: scroll-left 20s linear infinite;  /* Adjust time as needed */
+    animation: scroll-left 45s linear infinite;  /* Adjust time as needed */
     display: inline-block;  /* Enable animation */
   }
 
