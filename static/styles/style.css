@@ -11,7 +11,7 @@
 }
 
 body {
-  padding-top: 31px;
+  padding-top: 24px;
   background: var(--bg);
   color: var(--text);
 }
@@ -45,7 +45,7 @@ a {
   justify-content: space-between;
   height: 100px;
   position: sticky;
-  top: 31px;
+  top: 24px;
   z-index: 100;
   max-width: 1366px;
   margin: 0 auto;
@@ -304,8 +304,8 @@ a {
 
 .singleBottom {
   display: grid;
-  grid-template-columns: 1fr 250px;
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 50px;
   margin-top: 50px;
 }
 
@@ -445,20 +445,7 @@ code {
   }
 
   .singleBottom {
-    display: block;
-  }
-
-  .singleContent {
-    width: 100%;
-    max-width: none;
-  }
-
-  .singleRightBar {
-    display: none;
-  }
-
-  .rightBar {
-    display: none;
+    flex-direction: column-reverse;
   }
 
   .rightBarImg {
@@ -922,5 +909,35 @@ code {
 .dev-banner p {
   margin: 0;
   padding: 0;
+}
+
+/* Mobile banner adjustments */
+@media (max-width: 768px) {
+  .dev-banner {
+    padding: 0.25rem;  /* Reduce padding */
+    white-space: nowrap;  /* Keep text in one line */
+    overflow: hidden;
+  }
+  
+  .dev-banner p {
+    animation: scroll-left 20s linear infinite;  /* Adjust time as needed */
+    display: inline-block;  /* Enable animation */
+  }
+
+  /* Animation for scrolling text */
+  @keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Adjust body padding for thinner banner */
+  body {
+    padding-top: 24px;  /* Reduce top padding */
+  }
+
+  /* Adjust navbar top position */
+  .navbar {
+    top: 24px;  /* Match new banner height */
+  }
 }
 /* DEV BANNER END */
