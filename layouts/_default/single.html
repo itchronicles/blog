@@ -5,14 +5,17 @@
       <h1 class="singleHeadTitle">{{.Title}}</h1>
       <p class="singleHeadDesc">{{.Params.description}}</p>
       <div class="singleHeadDetail">
-        <img src={{.Params.avatar}} loading="lazy" alt="" class="singleAvatar">
-        <span>{{ range (.GetTerms "authors")}}
-          <a href={{.Permalink}}>{{ .Name }}</a>
+        <div class="authorInfo">
+          <img src={{.Params.avatar}} loading="lazy" alt="" class="singleAvatar">
+          <span>{{ range (.GetTerms "authors")}}
+            <a href={{.Permalink}}>{{ .Name }}</a>
+          {{end}}</span>
+        </div>
+        <div class="singleCategories">
+          {{ range (.GetTerms "categories")}}
+            <a href={{.Permalink}} class="singleCategory">{{ .Name }}</a>
           {{end}}
-        </span>
-        {{ range (.GetTerms "categories")}}
-        <a href={{.Permalink}} class="singleCategory">{{ .Name }}</a>
-        {{end}}
+        </div>
       </div>
       <time>{{ dateFormat .Site.Params.dateFormat .Date }}</time>
     </div>
