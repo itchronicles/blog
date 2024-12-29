@@ -791,6 +791,7 @@ code {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
+  color: var(--textSoft);
 }
 
 .category-count {
