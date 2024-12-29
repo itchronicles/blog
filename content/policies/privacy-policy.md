@@ -3,7 +3,7 @@ title = "Privacy Policy"
 date = 2024-03-21
 draft = false
 description = "Our Privacy Policy"
-layout = "page"
+layout = "policy"
 +++
 
 
