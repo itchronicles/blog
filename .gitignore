@@ -6,3 +6,4 @@ node_modules/
 .env
 .env.local
 .DS_Store 
+content/posts/vaultwarden-with-custom-cert.md
