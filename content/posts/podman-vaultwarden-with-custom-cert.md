@@ -38,7 +38,7 @@ cd /vaultwarden
 now that we are in the `/vaultwarden` directory we have two options to install Vaultwarden.
 
 1. Use a podman run command
-2. Use a podman compose file
+2. Use a compose file
 
 ### Option 1: Use a podman run command
 
@@ -70,7 +70,7 @@ lets break down the command:
 - `-p 443:80` Maps Port 443 on the host to Port 80 on the container
 - `docker.io/vaultwarden/server:latest` specifies the image to use
 
-### Option 2: Use a podman compose file
+### Option 2: Use a compose file
 
 First we need to create a `podman-compose.yml` file.
 
@@ -101,7 +101,7 @@ services:
     ports:
       - "443:80"
 ```
-after creating the docker compose file, you can start the container with the following command:
+after creating the podman compose file, you can start the container with the following command:
 
 ```bash
 podman-compose up -d
@@ -109,4 +109,4 @@ podman-compose up -d
 
 ## Learn More
 - 📖 <u>[Vaultwarden Documentation](https://github.com/dani-garcia/vaultwarden)</u> - Learn more about Vaultwarden
-- 📖 <u>[Docker Compose Documentation](https://docs.docker.com/compose/)</u> - Learn more about Docker Compose
+- 📖 <u>[Podman Compose Documentation](https://docs.podman.io/en/latest/markdown/podman-compose.1.html)</u> - Learn more about Podman Compose

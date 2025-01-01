@@ -2,7 +2,7 @@
 {{ if eq .RelPermalink "/categories/"}} 
 <div class="categories-grid">
   {{ range $.Site.Taxonomies.categories.ByCount }}
-    <a href="/categories/{{ .Name }}" class="category-card">
+    <a href="/categories/{{ .Name | urlize }}" class="category-card">
       <div class="category-name"># {{ .Name }}</div>
       <div class="category-count">{{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}</div>
     </a>
