@@ -1,11 +1,11 @@
 +++
-title = 'Vaultwarden With Custom SSL Certificate using podman'
-date = 2024-12-30T13:33:15+01:00
+title = 'Vaultwarden With Custom SSL Certificate using docker'
+date = 2025-01-01T22:42:22+01:00
 draft = false
-description = "Learn how to set up Vaultwarden with a custom SSL certificate in a podman container."
-image = "/images/podman-vaultwarden-with-custom-cert/vaultwarden-icon.svg"
-imageBig = "/images/podman-vaultwarden-with-custom-cert/vaultwarden-icon.svg"
-categories = ["Podman", "Vaultwarden", "Linux", "Home Lab", "SSL", "Certificate"]
+description = "Learn how to set up Vaultwarden with a custom SSL certificate in a docker container."
+image = "/images/docker-vaultwarden-with-custom-cert/vaultwarden-icon.svg"
+imageBig = "/images/docker-vaultwarden-with-custom-cert/vaultwarden-icon.svg"
+categories = ["Docker", "Vaultwarden", "Linux", "Home Lab", "SSL", "Certificate"]
 authors = ["lennart pieperjohanns"]
 avatar = "/images/avatar.webp"
 +++
@@ -14,20 +14,20 @@ avatar = "/images/avatar.webp"
 
 Many people use Vaultwarden as a self-hosted password manager.
 The most common way to setup Vaultwarden is to use a reverse proxy like nginx, traefik or caddy. However there is another way to setup Vaultwarden without a reverse proxy.
-This guide will show you how to set up Vaultwarden with a custom SSL certificate in a podman container.
+This guide will show you how to set up Vaultwarden with a custom SSL certificate in a docker container.
 
 ## Prerequisites
 
-- A Linux server or container with podman installed
+- A Linux server or container with docker installed
 - A valid SSL certificate (see <u>[Creating a Cloudflare SSL Certificate using certbot](/posts/creating-cloudflare-certificate)</u>)
 
 ## Setup
 
-For this guide I assume that the current user is `root`. If you are not `root` you can prefix the commands with `sudo` or `doas`. Alternatively you can switch to the `root` user with `sudo su -`.
+For this guide, I assume that the current user is `root`. If you are not `root`, you can prefix the commands with `sudo` or `doas`. Alternatively, you can switch to the `root` user with `sudo su -`.
 
-First lets create a directory for Vaultwarden.
+First, let's create a directory for Vaultwarden.
 
-I will create the `/vaultwarden` directory in my root directory. However you can choose any directory you want. One common place is `/opt/vaultwarden`.
+I will create the `/vaultwarden` directory in my root directory. However, you can choose any directory you want. One common place is `/opt/vaultwarden`.
 
 ```bash
 cd /
@@ -35,15 +35,15 @@ mkdir /vaultwarden
 cd /vaultwarden
 ```
 
-now that we are in the `/vaultwarden` directory we have two options to install Vaultwarden.
+Now that we are in the `/vaultwarden` directory, we have two options to install Vaultwarden.
 
-1. Use a podman run command
-2. Use a compose file
+1. Use a docker run command
+2. Use a docker-compose file
 
-### Option 1: Use a podman run command
+### Option 1: Use a docker run command
 
 ```bash
-podman run -d \
+docker run -d \
     --name=vaultwarden \
     --restart unless-stopped \
     -e DOMAIN="https://vault-test.itchronicles.org" \
@@ -53,12 +53,12 @@ podman run -d \
     -v /etc/letsencrypt/live/vault-test.itchronicles.org/fullchain.pem:/ssl/fullchain.pem:ro \
     -v /etc/letsencrypt/live/vault-test.itchronicles.org/privkey.pem:/ssl/privkey.pem:ro \
     -p 443:80 \
-    docker.io/vaultwarden/server:latest
+    vaultwarden/server:latest
 ```
 
-lets break down the command:
+Let's break down the command:
 
-- `podman run -d` creates a new container and runs it in detached mode
+- `docker run -d` creates a new container and runs it in detached mode
 - `--name=vaultwarden` sets the name of the container to `vaultwarden`
 - `--restart unless-stopped` sets the restart policy to `unless-stopped`
 - `-e DOMAIN="https://vault-test.itchronicles.org"` sets the domain to `https://vault-test.itchronicles.org`
@@ -68,25 +68,23 @@ lets break down the command:
 - `-v /etc/letsencrypt/live/vault-test.itchronicles.org/fullchain.pem:/ssl/fullchain.pem:ro` mounts the fullchain.pem file to the container as `/ssl/fullchain.pem`
 - `-v /etc/letsencrypt/live/vault-test.itchronicles.org/privkey.pem:/ssl/privkey.pem:ro` mounts the privkey.pem file to the container as `/ssl/privkey.pem`
 - `-p 443:80` Maps Port 443 on the host to Port 80 on the container
-- `docker.io/vaultwarden/server:latest` specifies the image to use
+- `vaultwarden/server:latest` specifies the image to use
 
-### Option 2: Use a compose file
+### Option 2: Use a docker-compose file
 
-First we need to create a `podman-compose.yml` file.
+First, we need to create a `docker-compose.yml` file.
 
 ```bash
-touch podman-compose.yml
+touch docker-compose.yml
 ```
 
-Now we can add the following content to the `podman-compose.yml` file:
+Now we can add the following content to the `docker-compose.yml` file:
 
 ```yaml
 ---
-version: '4'
-
 services:
   vaultwarden:
-    image: docker.io/vaultwarden/server:latest
+    image: vaultwarden/server:latest
     container_name: vaultwarden
     restart: unless-stopped
     environment:
@@ -101,12 +99,15 @@ services:
     ports:
       - "443:80"
 ```
-after creating the podman compose file, you can start the container with the following command:
+
+After creating the docker-compose file, you can start the container with the following command:
 
 ```bash
-podman-compose up -d
+docker-compose up -d
 ```
 
 ## Learn More
 - 📖 <u>[Vaultwarden Documentation](https://github.com/dani-garcia/vaultwarden)</u> - Learn more about Vaultwarden
-- 📖 <u>[Podman Compose Documentation](https://docs.podman.io/en/latest/markdown/podman-compose.1.html)</u> - Learn more about Podman Compose
+- 📖 <u>[Docker Compose Documentation](https://docs.docker.com/compose/)</u> - Learn more about Docker Compose
+
+
