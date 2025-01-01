@@ -43,44 +43,32 @@ now that we are in the `/vaultwarden` directory we have two options to install V
 ### Option 1: Use a podman run command
 
 ```bash
-podman create \
+podman run -d \
     --name=vaultwarden \
     --restart unless-stopped \
-    --label io.podman.compose.config-hash=123 \
-    --label io.podman.compose.project=vaultwarden \
-    --label io.podman.compose.version=0.0.1 \
-    --label com.docker.compose.project=vaultwarden \
-    --label com.docker.compose.project.working_dir=/vaultwarden \
-    --label com.docker.compose.project.config_files=docker-compose.yml \
-    --label com.docker.compose.container-number=1 \
-    --label com.docker.compose.service=vaultwarden \
-    -e DOMAIN=https://vault.itchronicles.org \
+    -e DOMAIN="https://vault-test.itchronicles.org" \
+    -e WEBSOCKET_ENABLED="true" \
+    -e ROCKET_TLS='{certs="/ssl/fullchain.pem",key="/ssl/privkey.pem"}' \
     -v /vaultwarden/vw-data:/data \
-    -v /etc/letsencrypt/archive/vault.itchronicles.org/fullchain1.pem:/ssl/fullchain.pem:ro \
-    -v /etc/letsencrypt/archive/vault.itchronicles.org/privkey1.pem:/ssl/privkey.pem:ro \
-    --net vaultwarden_default \
-    --network-alias vaultwarden \
+    -v /etc/letsencrypt/live/vault-test.itchronicles.org/fullchain.pem:/ssl/fullchain.pem:ro \
+    -v /etc/letsencrypt/live/vault-test.itchronicles.org/privkey.pem:/ssl/privkey.pem:ro \
     -p 443:80 \
-    vaultwarden/server:latest \
-    --disable-https \
-    --ssl-cert /ssl/fullchain.pem \
-    --ssl-key /ssl/privkey.pem
+    docker.io/vaultwarden/server:latest
 ```
 
 lets break down the command:
 
-- `podman create` creates a new container
+- `podman run -d` creates a new container and runs it in detached mode
 - `--name=vaultwarden` sets the name of the container to `vaultwarden`
 - `--restart unless-stopped` sets the restart policy to `unless-stopped`
-- `-e DOMAIN=https://vault.itchronicles.org` sets the domain to `https://vault.itchronicles.org`
+- `-e DOMAIN="https://vault-test.itchronicles.org"` sets the domain to `https://vault-test.itchronicles.org`
+- `-e WEBSOCKET_ENABLED="true"` enables websockets
+- `-e ROCKET_TLS='{certs="/ssl/fullchain.pem",key="/ssl/privkey.pem"}'` sets the SSL certificate and key
 - `-v /vaultwarden/vw-data:/data` mounts the `/vaultwarden/vw-data` directory to the container as `/data`
-- `-v /etc/letsencrypt/archive/vault.itchronicles.org/fullchain1.pem:/ssl/fullchain.pem:ro` mounts the fullchain.pem file to the container as `/ssl/fullchain.pem`
-- `-v /etc/letsencrypt/archive/vault.itchronicles.org/privkey1.pem:/ssl/privkey.pem:ro` mounts the privkey.pem file to the container as `/ssl/privkey.pem`
+- `-v /etc/letsencrypt/live/vault-test.itchronicles.org/fullchain.pem:/ssl/fullchain.pem:ro` mounts the fullchain.pem file to the container as `/ssl/fullchain.pem`
+- `-v /etc/letsencrypt/live/vault-test.itchronicles.org/privkey.pem:/ssl/privkey.pem:ro` mounts the privkey.pem file to the container as `/ssl/privkey.pem`
 - `-p 443:80` Maps Port 443 on the host to Port 80 on the container
-- `vaultwarden/server:latest` specifies the image to use
-- `--disable-https` disables HTTPS
-- `--ssl-cert /ssl/fullchain.pem` sets the SSL certificate to the fullchain.pem file
-- `--ssl-key /ssl/privkey.pem` sets the SSL key to the privkey.pem file
+- `docker.io/vaultwarden/server:latest` specifies the image to use
 
 ### Option 2: Use a podman compose file
 
@@ -98,25 +86,25 @@ version: '4'
 
 services:
   vaultwarden:
-    image: vaultwarden/server:latest
+    image: docker.io/vaultwarden/server:latest
     container_name: vaultwarden
     restart: unless-stopped
     environment:
-      DOMAIN: "https://vault.itchronicles.org"
+      DOMAIN: "https://vault-test.itchronicles.org"
       WEBSOCKET_ENABLED: "true"
       ROCKET_TLS: >
-        {certs="/ssl/fullchain.pem",key="/ssl/privkey.pem"}        
+        {certs="/ssl/fullchain.pem",key="/ssl/privkey.pem"}
     volumes:
       - /vaultwarden/vw-data:/data
-      - /etc/letsencrypt/live/vault.itchronicles.org/fullchain.pem:/ssl/fullchain.pem:ro
-      - /etc/letsencrypt/live/vault.itchronicles.org/privkey.pem:/ssl/privkey.pem:ro
+      - /etc/letsencrypt/live/vault-test.itchronicles.org/fullchain.pem:/ssl/fullchain.pem:ro
+      - /etc/letsencrypt/live/vault-test.itchronicles.org/privkey.pem:/ssl/privkey.pem:ro
     ports:
-      - "443:80" 
+      - "443:80"
 ```
 after creating the docker compose file, you can start the container with the following command:
 
 ```bash
-docker-compose up -d
+podman-compose up -d
 ```
 
 ## Learn More
