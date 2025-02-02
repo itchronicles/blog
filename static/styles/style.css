@@ -11,7 +11,8 @@
 }
 
 body {
-  padding-top: 24px;
+  margin: 0;
+  padding: 0;
   background: var(--bg);
   color: var(--text);
 }
@@ -45,7 +46,7 @@ a {
   justify-content: space-between;
   height: 100px;
   position: sticky;
-  top: 24px;
+  top: 0;
   z-index: 100;
   max-width: 1366px;
   margin: 0 auto;
@@ -965,58 +966,6 @@ code {
 }
 /* COPY BUTTON END */
 
-/* DEV BANNER START */
-.dev-banner {
-  background-color: #fff3cd;
-  border-bottom: 1px solid #ffeeba;
-  color: #856404;
-  padding: 0.5rem;
-  text-align: center;
-  font-size: 1.0rem;
-  line-height: 1.2;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-.dev-banner p {
-  margin: 0;
-  padding: 0;
-}
-
-/* Mobile banner adjustments */
-@media (max-width: 768px) {
-  .dev-banner {
-    padding: 0.25rem;  /* Reduce padding */
-    white-space: nowrap;  /* Keep text in one line */
-    overflow: hidden;
-  }
-  
-  .dev-banner p {
-    animation: scroll-left 45s linear infinite;  /* Adjust time as needed */
-    display: inline-block;  /* Enable animation */
-  }
-
-  /* Animation for scrolling text */
-  @keyframes scroll-left {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-  /* Adjust body padding for thinner banner */
-  body {
-    padding-top: 24px;  /* Reduce top padding */
-  }
-
-  /* Adjust navbar top position */
-  .navbar {
-    top: 24px;  /* Match new banner height */
-  }
-}
-/* DEV BANNER END */
 
 .authorInfo {
   display: flex;
