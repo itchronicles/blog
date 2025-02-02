@@ -9,7 +9,7 @@ layout = "policy"
 
 # Privacy Policy
 
-Last updated: December 27, 2024
+Last updated: February 2, 2025
 
 
 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
@@ -96,8 +96,6 @@ We may also collect information that Your browser sends whenever You visit our S
 
 
 
-
-
 #### Tracking Technologies and Cookies
 
 We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:
@@ -131,9 +129,24 @@ We use both Session and Persistent Cookies for the purposes set out below:
 
 	Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website.
 
+## Cookies Consent
+
+We use Google Ads to serve personalized advertisements. Before Google can place advertising cookies on your device, you need to provide your consent. When you visit our website, a cookie consent banner will appear to allow you to accept or reject cookies for personalized advertising.
+
+- __Necessary Cookies__: These are essential for the website to function and cannot be turned off.
+- __Advertising Cookies__: These are used to show personalized ads based on your browsing behavior. You can manage your preferences and opt out of personalized ads at any time using the cookie consent banner provided by Google.
+
+For more information on how Google Ads collects and uses data, please refer to Google's Privacy Policy: [Google Privacy & Terms](https://policies.google.com/privacy).
 
 
 For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.
+
+#### Third-Party Tracking
+
+We use third-party services to monitor and analyze how the Service is used, including Cloudflare and Google Ads:
+
+- __Cloudflare:__ Cloudflare is a service that hosts, improves the performance and security of our website. It may collect data related to your usage of the Service, including your IP address, to help enhance website security, load balancing, and performance optimization. For more information, refer to Cloudflare’s privacy policy: [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
+- __Google Ads:__ We use Google Ads to display advertisements on the Website. Google uses cookies to serve personalized ads to users based on their behavior on our site and other sites they visit. For more information, see Google’s Privacy Policy: [Google Privacy & Terms](https://policies.google.com/privacy).
 
 
 ### Use of Your Personal Data
@@ -168,6 +181,7 @@ The Company will also retain Usage Data for internal analysis purposes. Usage Da
 ### Transfer of Your Personal Data
 
 Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.
+For example, we use services like **Google Ads** and **Cloudflare**, which may involve the transfer of your personal data to **the United States**. These services comply with international data protection regulations, including the **EU-U.S. Data Privacy Framework**, to ensure that adequate protection is in place for your data.
 
 Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.
 
