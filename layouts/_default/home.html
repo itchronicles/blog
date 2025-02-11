@@ -1,5 +1,32 @@
 {{ define "main" }}
-<!-- Only the search container -->
+<!-- Slider container -->
+<div class="slider-container">
+  <button class="slider-arrow prev" aria-label="Previous slide">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  
+  <div class="slider">
+    {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
+    <div class="slide">
+      {{ if .Params.image }}
+      <img src="{{ .Params.image }}" alt="{{ .Title }}" class="slide-image">
+      {{ end }}
+      <h2 class="slide-title">{{ .Title }}</h2>
+      <a href="{{ .Permalink }}" class="slide-link" aria-label="Read {{ .Title }}"></a>
+    </div>
+    {{ end }}
+  </div>
+  
+  <button class="slider-arrow next" aria-label="Next slide">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+
+<!-- Search container -->
 <div class="main-search-container">
   <h1>Search Articles</h1>
   <div class="main-search-wrapper">
