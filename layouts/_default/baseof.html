@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="icon" href="/images/favicon.png" />
   <link rel="canonical" href="{{ .Permalink }}" />
-  <title>{{ .Title }}</title>
+  <title>{{ if .IsHome }}itchronicles{{ else }}{{ .Title }} - itchronicles{{ end }}</title>
+  <meta property="og:title" content="itchronicles - Technology Blog & Knowledge Base">
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>   <!-- Fuse.js - Lightweight fuzzy-search library used for site search functionality -->
   <script src="/js/search.js" defer></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5241206183807315"
