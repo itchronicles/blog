@@ -10,7 +10,7 @@ canonifyURLs = true
 pagerSize = "4"
 
 [params]
-  description = "IT blog and knowledge base"
+  description = "itchronicles - is a technology blog and knowledge base covering subjects like homelabbing, servers, security, DevOps and more. Providing How-To tutorials and articles for anyone interested in IT."
   dateFormat = "2.Jan.2006"
 
 [taxonomies]
