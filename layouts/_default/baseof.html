@@ -11,7 +11,7 @@
   <link rel="canonical" href="{{ .Permalink }}" />
   <title>{{ if .IsHome }}itchronicles{{ else }}{{ .Title }} - itchronicles{{ end }}</title>
   <meta property="og:title" content="itchronicles - Technology Blog & Knowledge Base">
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>   <!-- Fuse.js - Lightweight fuzzy-search library used for site search functionality -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2" defer></script>   <!-- Fuse.js - Lightweight fuzzy-search library used for site search functionality -->
   <script src="/js/search.js" defer></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5241206183807315"
      crossorigin="anonymous"></script>
@@ -23,8 +23,9 @@
     {{ block "main" . }} {{ end }}
     {{ partial "footer" . }}
   </div>
+  <!-- Move scripts to end of body and add defer -->
   <script src="/js/app.js"></script>
-  <script src="/js/copyCode.js"></script>
-  <script src="/js/slider.js"></script>
+  <script src="/js/copyCode.js" defer></script>
+  <script src="/js/slider.js" defer></script>
 </body>
 </html>
