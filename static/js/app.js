@@ -45,24 +45,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-// DEV BANNER START
-document.addEventListener('DOMContentLoaded', function() {
-    const banner = document.querySelector('.dev-banner');
-    const navbar = document.querySelector('.navbar');
-
-    function updateNavbarPosition() {
-        const bannerRect = banner.getBoundingClientRect();
-        if (bannerRect.bottom <= 0) {
-            // Banner is scrolled out of view
-            navbar.style.top = '0';
-        } else {
-            // Banner is visible
-            navbar.style.top = '31px';
-        }
-    }
-
-    window.addEventListener('scroll', updateNavbarPosition);
-    updateNavbarPosition(); // Initial position
-});
-// DEV BANNER END
