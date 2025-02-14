@@ -2,7 +2,7 @@
 title = 'How to automatically manage content on Redhat Satellite with Ansible'
 date = 2025-02-13T19:52:06+01:00
 draft = false
-description = "Learn how to automatically manage content on Redhat Satellite with Ansible"
+description = "Learn how to automatically publish and promote content views Updates on Redhat Satellite with Ansible"
 image = "/images/redhat-satellite-automatic-content-management-with-ansible/content-management.webp"
 imageBig = "/images/redhat-satellite-automatic-content-management-with-ansible/content-management.webp"
 categories = ["Ansible", "RHEL", "Linux", "Automation", "Satellite", "Content Management", "Redhat"]
