@@ -40,19 +40,22 @@ First, we need to create the base of the playbook.
 ---
 - name: Publish rhel content view
   hosts: all
-  become: true 
+  any_errors_fatal: true
+  become: true
   vars:
     satellite_server_url: https://satellite.example.com
     satellite_username: "{{ username }}"
     satellite_password: "{{ password }}"
     satellite_organization: "{{ organisation }}"
 ```	
-Together with the standard playbook structure, I define that we want to become the root user on the hosts and I also give the global variables that we will use in the playbook.
+Together with the standard playbook structure, I define that we want to become the root user on the hosts and I also give the global variables that we will use in the playbook. 
 
 - satellite_server_url: the url of the satellite server
 - satellite_username: the username of the user that has the necessary permissions to manage the content on the satellite server
 - satellite_password: the password of the user
 - satellite_organization: the organization that we want to manage the content for
+
+Also I want to stop the playbook on every host if there has been even one error. To achieve this, I set any_errors_fatal to true.
 
 Feel free to change any of these variables, even to static values if that suits your needs.
 
@@ -159,6 +162,7 @@ Now we can add the content of the playbook. Please note to change any variables 
 ---
 - name: Publish rhel content view
   hosts: all
+  any_errors_fatal: true
   become: true 
   vars:
     satellite_server_url: https://satellite.example.com
