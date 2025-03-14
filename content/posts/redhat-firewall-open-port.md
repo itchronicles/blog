@@ -1,8 +1,8 @@
 +++
-title = 'Redhat Firewall Open Port'
+title = 'How to open a port under RedHat'
 date = 2025-03-14T10:53:02+01:00
 draft = false
-description = "How to open a port under RedHat"
+description = "Learn how to open and manage firewall ports in RedHat Enterprise Linux (RHEL) using firewall-cmd. Step-by-step guide for configuring firewalld, adding ports, and securing your RHEL system with proper firewall management."
 image = "/images/redhat-firewall-open-port/firewall.png"
 imageBig = "/images/redhat-firewall-open-port/firewall.png"
 categories = ["RHEL", "Linux", "Redhat"]
