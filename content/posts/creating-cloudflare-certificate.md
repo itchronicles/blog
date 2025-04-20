@@ -13,7 +13,7 @@ avatar = "/images/avatar.webp"
 ## Introduction
 
 As IT Enthusiasts, having a homelab is great. You can have projects, deploy practical things like a password manager or your own cloud.
-However, no one likes having warnings like "Your connection is not Private". To fix this, there are two options: either import the self-signed certificate, set up your own CA, or get a valid certificate from a CA like Let's Encrypt.
+However, no one likes having warnings like "Your connection is not Private". To fix this, there are multiple options: either import the self-signed certificate, set up your own CA, or get a valid certificate from a CA like Let's Encrypt.
 Since I have a domain registered with Cloudflare, I thought why not make use of it.
 
 So here is my way of getting certificates through Certbot and Cloudflare.
